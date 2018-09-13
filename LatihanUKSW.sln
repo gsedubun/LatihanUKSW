@@ -5,7 +5,10 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatihanUKSW", "LatihanUKSW\LatihanUKSW.csproj", "{9B354502-DCCB-4629-8AC8-BDD8E73484E4}"
 EndProject
-
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latihan.Data", "Latihan.Data\Latihan.Data.csproj", "{E8ACAD3F-214C-4FE2-A290-852D591A8871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latihan.Web", "Latihan.Web\Latihan.Web.csproj", "{6CD00066-A2DF-4390-A056-CCB65EA8A91B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +23,14 @@ Global
 		{17D4B18F-48D8-41CE-ACAB-3A7A977FE80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17D4B18F-48D8-41CE-ACAB-3A7A977FE80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17D4B18F-48D8-41CE-ACAB-3A7A977FE80F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8ACAD3F-214C-4FE2-A290-852D591A8871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8ACAD3F-214C-4FE2-A290-852D591A8871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8ACAD3F-214C-4FE2-A290-852D591A8871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8ACAD3F-214C-4FE2-A290-852D591A8871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD00066-A2DF-4390-A056-CCB65EA8A91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD00066-A2DF-4390-A056-CCB65EA8A91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD00066-A2DF-4390-A056-CCB65EA8A91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD00066-A2DF-4390-A056-CCB65EA8A91B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

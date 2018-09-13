@@ -1,6 +1,6 @@
 using System;
 
-namespace LatihanUKSW
+namespace Latihan.Data
 {
     public class Transaction
     {

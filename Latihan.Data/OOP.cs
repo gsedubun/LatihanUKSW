@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LatihanUKSW
+namespace Latihan.Data
 {
 
     public class BankAccount

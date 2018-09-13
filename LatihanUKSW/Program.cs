@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Latihan.Data;
 
 namespace LatihanUKSW
 {
@@ -13,6 +14,10 @@ namespace LatihanUKSW
             ba.MakeWithdrawal(7000M, DateTime.Now, "uang dari ngasdos");
             System.Console.WriteLine($"Saldo akhir : {ba.Balance}");
     
+            DataAccess da = new DataAccess();
+            string makanan = da.AmbilMakan();
+            System.Console.WriteLine($"makanannya adalah : {makanan}");
+
             // BankAccount ba2 = new BankAccount("David", 1000M);
             // Console.WriteLine($"Account {ba2.Number} dibuat untuk {ba2.Owner} dengan saldo awal {ba2.Balance}.");
             
