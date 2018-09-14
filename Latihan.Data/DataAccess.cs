@@ -8,13 +8,16 @@ namespace Latihan.Data
 {
     public class DataAccess
     {
+        private static string connstr = @"Host=localhost; 
+                port=5432;Database=TrainingUKSW;
+                user id=postgres;password=postgres";
         public string AmbilMakan(){
             return "Nasi goreng";
             // return 1 ;
         }
+        
         public IEnumerable<TabelUser> GetUser(){
-            string connstr = @"Host=localhost; port=5432;Database=TrainingUKSW;
-                user id=postgres;password=postgres";
+            
             NpgsqlConnection connection = new NpgsqlConnection(connstr);
             connection.Open();
             var data = connection.Query<TabelUser>(@"SELECT user_id, 
@@ -25,6 +28,22 @@ namespace Latihan.Data
                 FROM tr_user");
             connection.Close();
             return data;
+        }
+
+        public void InsertUser(TabelUser tabelUser)
+        {
+            NpgsqlConnection connection = new   NpgsqlConnection(connstr);
+            string sqlInsert = @"INSERT INTO tr_user(user_name,
+                full_name,email,password)
+                VALUES(@user_name,@full_name,@email,@password)";
+            var insert = connection.Execute(sqlInsert,new {
+                user_name = tabelUser.user_name,
+                full_name=tabelUser.full_name,
+                email = tabelUser.email,
+                password=tabelUser.password
+            });
+
+            
         }
     }
 //VIEWMODEL TYPES

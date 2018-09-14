@@ -12,9 +12,17 @@ namespace Latihan.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             DataAccess da = new DataAccess();
+            return View(da);
+        }
+
+        [HttpPost]
+        public IActionResult Index(TabelUser tabelUser){
+            DataAccess da = new DataAccess();
+            da.InsertUser(tabelUser);
             return View(da);
         }
 
