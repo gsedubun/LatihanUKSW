@@ -11,13 +11,23 @@ namespace Latihan.Data
         private static string connstr = @"Host=localhost; 
                 port=5432;Database=TrainingUKSW;
                 user id=postgres;password=postgres";
+
+        public IEnumerable<TabelRole> GetRoles()
+        {
+            NpgsqlConnection connection = new NpgsqlConnection(connstr);
+            connection.Open();
+            var data = connection.Query<TabelRole>(@"SELECT role_id, role_name
+                FROM tr_role");
+            connection.Close();
+            return data;
+        }
+
         public string AmbilMakan(){
             return "Nasi goreng";
             // return 1 ;
         }
         
         public IEnumerable<TabelUser> GetUser(){
-            
             NpgsqlConnection connection = new NpgsqlConnection(connstr);
             connection.Open();
             var data = connection.Query<TabelUser>(@"SELECT user_id, 
@@ -47,6 +57,14 @@ namespace Latihan.Data
         }
     }
 //VIEWMODEL TYPES
+
+    public class TabelRole
+    {
+        public int role_id { get; set; }
+        public string role_name { get; set; }
+
+    }
+
     public class TabelUser{
         public int user_id { get; set; }
         public string  user_name { get; set; }
