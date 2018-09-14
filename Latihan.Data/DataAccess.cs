@@ -22,6 +22,17 @@ namespace Latihan.Data
             return data;
         }
 
+        public int DeleteUser(int user_id)
+        {
+            NpgsqlConnection connection = new   NpgsqlConnection(connstr);
+            string sqlDelete = @"DELETE FROM tr_user WHERE user_id=@user_id";
+            int delete = connection.Execute(sqlDelete,new {
+                    user_id=user_id
+            });
+            return delete;
+        }
+
+
         public string AmbilMakan(){
             return "Nasi goreng";
             // return 1 ;

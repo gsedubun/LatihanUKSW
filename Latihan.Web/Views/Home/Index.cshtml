@@ -37,7 +37,37 @@
                 <td>@item.user_name</td>
                 <td>@item.user_id</td>
                 <td>@item.password</td>
-                </tr>
+                <td>
+                    <input type="button" 
+                        id="btnDelete"
+                        data-val="@item.user_id"
+                        value="Delete" 
+                        class="btn btn-danger btndelete" 
+                     />
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+@section Scripts{
+
+<script type="text/javascript">
+    $(function(){
+        $(".btndelete").click(function(){
+            var id = $(this).data('val');
+            console.log(id);
+            $.get('/api/deleteuser?user_id='+id,function(d){
+                alert('succes '+d);
+            })
+        }) ;     
+        // $("#btnDelete").bind('click',function(){
+        //     var id = $.data(this,'val');
+        //     console.log(id);
+        //     $.get('/api/deleteuser?user_id='+id,function(d){
+        //         alert('succes '+d);
+        //     })
+        // }) ;     
+    });
+ 
+</script>
+}
