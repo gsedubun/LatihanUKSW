@@ -11,6 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/LatihanUKSW/bin/Debug/netcoreapp2.1/LatihanUKSW.dll",
+            //"program": "${workspaceFolder}/Latihan.Web/bin/Debug/netcoreapp2.1/Latihan.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/LatihanUKSW",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window

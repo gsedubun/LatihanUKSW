@@ -8,15 +8,23 @@ namespace LatihanUKSW
     {
         static void Main(string[] args)
         {
-            BankAccount ba = new BankAccount("Gadael", 5000M);
-            Console.WriteLine($"Account {ba.Number} dibuat untuk {ba.Owner} dengan saldo awal {ba.Balance}.");
-            ba.MakeDeposit(700M, DateTime.Now, "uang dari ngasdos");
-            ba.MakeWithdrawal(7000M, DateTime.Now, "uang dari ngasdos");
-            System.Console.WriteLine($"Saldo akhir : {ba.Balance}");
+            // BankAccount ba = new BankAccount("Gadael", 5000M);
+            // Console.WriteLine($"Account {ba.Number} dibuat untuk {ba.Owner} dengan saldo awal {ba.Balance}.");
+            // ba.MakeDeposit(700M, DateTime.Now, "uang dari ngasdos");
+            // ba.MakeWithdrawal(7000M, DateTime.Now, "uang dari ngasdos");
+            // System.Console.WriteLine($"Saldo akhir : {ba.Balance}");
     
             DataAccess da = new DataAccess();
-            string makanan = da.AmbilMakan();
-            System.Console.WriteLine($"makanannya adalah : {makanan}");
+            //string makanan = da.AmbilMakan();
+            //System.Console.WriteLine($"makanannya adalah : {makanan}");
+
+	        var user = da.GetUser();
+	        foreach (var item in user)
+            {
+                
+                Console.WriteLine($"Email : {item.email} | UserName : {item.user_name}");    
+            }
+            
 
             // BankAccount ba2 = new BankAccount("David", 1000M);
             // Console.WriteLine($"Account {ba2.Number} dibuat untuk {ba2.Owner} dengan saldo awal {ba2.Balance}.");
