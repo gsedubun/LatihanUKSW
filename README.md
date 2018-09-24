@@ -8,3 +8,6 @@ Latihan Kerja Praktek UKSW 2018
 #DOWNLOAD GOOGLE SLIDES DI 
 
  https://docs.google.com/presentation/d/1DpoMoUwjc7INUHCpyUyhKTvtZ-jTdumEjYzu-qFM26I/edit?usp=sharing
+
+
+ 
