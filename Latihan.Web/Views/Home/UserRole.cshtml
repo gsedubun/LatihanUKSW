@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+@using System.Collections.Generic
+@using Latihan.Web.Models
+
+@model FormUserRoleViewModel
+
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<form asp-action="UserRole"  method="POST" class="panel panel-default">
+<div class="panel-heading">
+    New user role
+</div>
+    <div class="panel-body">
+        <label>User Name</label>
+        <select name="user_id" class="form-control">
+            @foreach(var u in Model.users){
+                <option value="@u.user_id" >@u.user_name</option>
+            }
+        </select>
+
+        <label>Role Name</label>
+        <select name="role_id" class="form-control">
+            @foreach(var u in Model.roles){
+                <option value="@u.role_id" >@u.role_name</option>
+            }
+        </select>
+        <input  type="submit" value="submit" class="btn btn-primary"/>
+    </div>
+</form>
+
+<table class="table table-default">
+    <thead>
+        <th>User name</th>
+        <th>Role Name</th>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.userroles){
+            <tr>
+                <td>@item.user_name</td>
+                <td>@item.role_name</td>
+            </tr>
+        }
+    </tbody>
+</table>    
+
+
+

@@ -48,6 +48,7 @@ namespace Latihan.Data
         {
             Owner = name;
             
+            
             this.Number = accountNumberSeed.ToString();
             accountNumberSeed++;
             MakeDeposit(initBalance, DateTime.Now, "Initial balance");

@@ -8,9 +8,14 @@ namespace Latihan.Data
 {
     public class DataAccess
     {
-        private static string connstr = @"Host=localhost; 
-                port=5432;Database=TrainingUKSW;
-                user id=postgres;password=postgres";
+        private string connstr;
+        public DataAccess(string connStr)
+        {
+            this.connstr = connStr;
+        }
+        // private static string connstr = @"Host=localhost; 
+        //         port=5432;Database=TrainingUKSW;
+        //         user id=postgres;password=postgres";
 
         public IEnumerable<TabelRole> GetRoles()
         {
@@ -50,8 +55,19 @@ namespace Latihan.Data
             connection.Close();
             return data;
         }
+        public IEnumerable<VWUserRole> GetUserRoles(){
+            NpgsqlConnection connection = new NpgsqlConnection(connstr);
+            connection.Open();
+            var data = connection.Query<VWUserRole>(@"SELECT user_name
+                ,email
+                ,full_name
+                ,role_name
+                FROM vw_user_role");
+            connection.Close();
+            return data;
+        }
 
-        public void InsertUser(TabelUser tabelUser)
+        public int InsertUser(TabelUser tabelUser)
         {
             NpgsqlConnection connection = new   NpgsqlConnection(connstr);
             string sqlInsert = @"INSERT INTO tr_user(user_name,
@@ -63,24 +79,31 @@ namespace Latihan.Data
                 email = tabelUser.email,
                 password=tabelUser.password
             });
-
-            
+            return insert;
         }
-    }
-//VIEWMODEL TYPES
 
-    public class TabelRole
-    {
-        public int role_id { get; set; }
-        public string role_name { get; set; }
+        public int InsertRole(TabelRole tabelRole)
+        {
+            NpgsqlConnection connection = new   NpgsqlConnection(connstr);
+            string sqlInsert = @"INSERT INTO tr_role(role_name) VALUES(@role_name)";
+            var insert = connection.Execute(sqlInsert,new {
+                role_name = tabelRole.role_name,
+            });
+            return insert;
+        }
+        public int InsertUserRole(TabelUserRole tabelRole)
+        {
+            NpgsqlConnection connection = new   NpgsqlConnection(connstr);
+            string sqlInsert = @"INSERT INTO tt_user_role(role_id,user_id)
+                VALUES(@role_id,@user_id)";
+            var insert = connection.Execute(sqlInsert,new {
+                role_id = tabelRole.role_id,
+                user_id=tabelRole.user_id
+            });
+            return insert;
 
-    }
-
-    public class TabelUser{
-        public int user_id { get; set; }
-        public string  user_name { get; set; }
-        public string email{ get; set; }
-        public string full_name{ get; set; }
-        public string password{ get; set; }
+        }
+      
+        
     }
 }

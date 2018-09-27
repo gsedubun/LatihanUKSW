@@ -6,6 +6,10 @@ namespace LatihanUKSW
 {
     class Program
     {
+        private static string connstr = @"Host=localhost; 
+                port=5432;Database=TrainingUKSW;
+                user id=postgres;password=postgres";
+
         static void Main(string[] args)
         {
             // BankAccount ba = new BankAccount("Gadael", 5000M);
@@ -14,7 +18,7 @@ namespace LatihanUKSW
             // ba.MakeWithdrawal(7000M, DateTime.Now, "uang dari ngasdos");
             // System.Console.WriteLine($"Saldo akhir : {ba.Balance}");
     
-            DataAccess da = new DataAccess();
+            DataAccess da = new DataAccess(connstr);
             //string makanan = da.AmbilMakan();
             //System.Console.WriteLine($"makanannya adalah : {makanan}");
 

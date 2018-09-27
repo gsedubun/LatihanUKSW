@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model Latihan.Data.DataAccess
+@using System.Collections.Generic
+@using Latihan.Data
+@model IEnumerable<TabelUser>
 
 <form asp-action="Index"  method="POST" class="panel panel-default">
 <div class="panel-heading">
@@ -31,7 +33,7 @@
         <th>Password</th>
     </thead>
     <tbody>
-        @foreach(var item in Model.GetUser()){
+        @foreach(var item in Model){
             <tr>
                 <td>@item.email</td>
                 <td>@item.user_name</td>
