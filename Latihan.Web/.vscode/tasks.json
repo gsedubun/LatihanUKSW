@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/LatihanUKSW.sln"
+                "${workspaceFolder}/Latihan.Web.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

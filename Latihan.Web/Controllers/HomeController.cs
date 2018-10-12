@@ -7,15 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Latihan.Web.Models;
 
 using Latihan.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Latihan.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private DataAccess da;
 
         public HomeController(DataAccess dataaccess)
         {
+            
             this.da = dataaccess;
         }
         [HttpGet]

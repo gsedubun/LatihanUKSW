@@ -34,6 +34,25 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Roles">Roles</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="UserRole">UserRole</a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(!User.Identity.IsAuthenticated){
+                       <li>
+                           <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                       </li>
+                    }
+                    else{
+                        <li>
+                            <span>@User.Identity.Name</span>
+                        </li>
+                        <li>
+                            <form asp-action="logout" asp-controller="account" method="post">
+                                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                                <!-- <a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a> -->
+                            </form>
+                        </li>
+                    }
+                    
+                </ul>
             </div>
         </div>
     </nav>

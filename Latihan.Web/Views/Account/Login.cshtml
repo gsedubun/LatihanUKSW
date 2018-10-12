@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Login";
+}
+@using Latihan.Web.Models
+@model LoginViewModel
+<!-- <h2>@ViewData["Title"]</h2> -->
+<p>@ViewData["Message"].<br/>
+   
+</p>
+     @Html.ValidationSummary(true)
+
+<fieldset class="form-group col-xs-12" >
+    <legend>
+        <h2>@ViewData["Title"]</h2>
+    </legend>
+    <form  method="post" class="panel panel-default " >
+     <div class="panel-body col-md-5">
+        <label>Username</label>
+        <input type="text" asp-for="UserName" class="form-control"/>
+        <label>Password</label>
+        <input type="password" asp-for="Password" class="form-control"/>
+        <label>Remember me?</label>
+        <input type="checkbox" asp-for="RememberMe" class=""/> <br/>
+
+        <div class="btn btn-group">
+            <input  type="submit" value="Login" class="btn btn-default"/>
+        </div>
+    </div>
+    </form>
+</div>

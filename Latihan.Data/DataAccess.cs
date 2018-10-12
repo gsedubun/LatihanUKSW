@@ -42,7 +42,21 @@ namespace Latihan.Data
             return "Nasi goreng";
             // return 1 ;
         }
-        
+        public TabelUser ValidateLogin(string username, string password){
+            NpgsqlConnection connection = new NpgsqlConnection(connstr);
+            
+            var data= connection.QuerySingle<TabelUser>(@"SELECT user_id, 
+                user_name,
+                email,
+                full_name,
+                password
+                FROM tr_user where user_name=@username and password=@password",
+                 new {username, password});
+            if(data!=null)
+                return data;
+                
+            return null;
+        }
         public IEnumerable<TabelUser> GetUser(){
             NpgsqlConnection connection = new NpgsqlConnection(connstr);
             connection.Open();
